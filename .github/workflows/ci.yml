@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  phpunit:
+  ci:
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     runs-on: ${{ matrix.operating-system }}
     strategy:
@@ -35,3 +35,6 @@ jobs:
 
       - name: PHPStan analysis
         run: vendor/bin/phpstan
+
+      - name: Psalm static analysis
+        run: vendor/bin/psalm
